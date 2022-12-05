@@ -1,0 +1,22 @@
+{
+    "id": "WeakEncryptionAlgorithms",
+    "brief_description": "Use cipher algorithms intensively tested and promoted by the cryptographic community; with a block size inferior than 128 bits",
+    "inspector": {
+      "pattern": "Cipher.getInstance\\((.*?)\\)",
+      "group_patterns": [
+        "(.*AES[^\\/].*)", "(.*DES[^\\/].*)"
+      ],
+      "fixes": [
+        {
+          "name": "Improve security with algorithm with block size than 128 bits (Using AES/GCM/NoPadding))",
+          "patterns": [
+            "(.*AES[^\\/].*)"
+          ],
+          "strings": [
+            "AES/GCM/NoPadding"
+          ]
+        }
+      ]
+    },
+    "highlight_type": "WARNING"
+  }
